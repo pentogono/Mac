@@ -29,7 +29,8 @@ public class ProductRepositoryJDBCImpl implements ProductRepository {
                         int id = resultSet.getInt("id");
                         String name = resultSet.getString("name");
                         int price = resultSet.getInt("price");
-                        products.add(new Product(id, name, price));
+                        String productUrl = resultSet.getString( "productUrl");
+                        products.add(new Product(id, name, price, productUrl));
                     }
 
                     return products;
@@ -52,7 +53,8 @@ public class ProductRepositoryJDBCImpl implements ProductRepository {
                     if (resultSet.next()) {
                         String name = resultSet.getString("name");
                         int price = resultSet.getInt("price");
-                        return Optional.of(new Product(id, name, price));
+                        String productUrl = resultSet.getString( "productUrl");
+                        return Optional.of(new Product(id, name, price, productUrl));
                     }
 
                     return Optional.empty();

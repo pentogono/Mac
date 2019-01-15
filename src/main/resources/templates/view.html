@@ -13,6 +13,7 @@
 
 <p>[[${item.price}]]</p>
 
+<img data-th-src="@{{url}(url=${item.imageUrl})}">
 <a data-th-href="@{/{id}/edit(id=${item.id})}">Edit</a>
 <a data-th-href="@{/{id}/remove(id=${item.id})}">Remove</a>
 
